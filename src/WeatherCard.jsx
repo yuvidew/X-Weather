@@ -10,13 +10,13 @@ export const WeatherCard = ({data}) => {
             <Card className=' border p-5'>
                 <h3 className=' text-center text-[1.2rem] font-medium'>Temperature</h3>
                 <p className=' text-center mt-4'>
-                    {current?.humidity}%
+                    {current?.temp_c}°C
                 </p>
             </Card>
             <Card className=' border p-5'>
                 <h3 className=' text-center text-[1.2rem] font-medium'>Humidity</h3>
                 <p className=' text-center mt-4'>
-                    {current?.temp_c}°C
+                    {current?.humidity}%
                 </p>
             </Card>
             <Card className=' border p-5'>

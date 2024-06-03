@@ -5,7 +5,6 @@ import {
 } from "@/components/ui/card"
 
 import { Input } from "@/components/ui/input"
-
 import { Button } from "@/components/ui/button"
 import axios from 'axios'
 import { WeatherCard } from './WeatherCard'
@@ -13,7 +12,7 @@ import { WeatherCard } from './WeatherCard'
 
 const App = () => {
   const [isLoading , setIsLoading] = useState(null);
-  const [weatherData , setWeatherData] = useState(false);
+  const [weatherData , setWeatherData] = useState(null);
   const [search , setSearch] = useState('')
 
   const getSearch = async () => {
@@ -35,6 +34,10 @@ const App = () => {
     }
   }
 
+  const onSubmit = () => {
+    getSearch()
+  }
+
 
   return (
     <section className='h-[100vh]'>
@@ -42,7 +45,8 @@ const App = () => {
         <Card className = "w-[25rem]">
           <CardHeader >
           <div className = "flex items-center gap-4 " >
-            <Input 
+            <Input
+              type = 'text'
               placeholder = "Enter city name" 
               className = " text-[1.2rem] placeholder:text-stone-400"
               value = {search}
@@ -50,7 +54,7 @@ const App = () => {
             />
             <Button 
               variant = "green" 
-              onClick = {getSearch}
+              onClick = {onSubmit}
             >Search</Button>
           </div>
           </CardHeader>
